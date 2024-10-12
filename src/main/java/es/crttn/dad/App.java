@@ -15,8 +15,6 @@ public class App extends Application {
 
         mc = new MainController();
 
-
-
         Scene scene = new Scene(mc.getRoot());
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(mc.getRoot().getMinWidth());

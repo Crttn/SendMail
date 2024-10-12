@@ -7,11 +7,11 @@ public class Alerts {
     private final Alert confirmatioAlert = new Alert(Alert.AlertType.CONFIRMATION);
     private final Alert erroAlert = new Alert(Alert.AlertType.ERROR);
 
-    public void setConfirmatioAlert() {
+    public void setConfirmatioAlert(String email) {
 
         confirmatioAlert.setTitle("");
         confirmatioAlert.setHeaderText("Envio con exito");
-        confirmatioAlert.setContentText("El correo se ha enviado correctamente al destinatario");
+        confirmatioAlert.setContentText("Mensaje enviado con exito a '" + email + "'");
         confirmatioAlert.showAndWait();
     }
 

@@ -68,7 +68,6 @@ public class MainController implements Initializable {
         }
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -79,10 +78,6 @@ public class MainController implements Initializable {
         return root;
     }
 
-    public TextField getSubjectTextField() {
-        return subjectTextField;
-    }
-
     @FXML
     void sendOnaction(ActionEvent event) {
 
@@ -90,10 +85,9 @@ public class MainController implements Initializable {
             Email email = getEmail();
             email.send();
 
-            a.setConfirmatioAlert();
+            a.setConfirmatioAlert(emailFromTextField.getText());
 
         } catch (IllegalArgumentException e) {
-            System.out.println("Error al cargar el archivo");
             a.setErroAlert();
         } catch (EmailException e) {
             a.setErroAlert();
