@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="200.0" minWidth="400.0" prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
+<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="500.0" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="100.0" />
@@ -54,45 +54,54 @@
             <Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
          </GridPane.margin>
       </Text>
-      <TextField minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="2" prefHeight="26.0" prefWidth="86.0" promptText="Nombre o IP del servidor" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+      <TextField fx:id="nameTextField" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="2" prefHeight="26.0" prefWidth="86.0" promptText="Nombre o IP del servidor" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
          <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </TextField>
-      <TextField maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="60.0" promptText="Puerto" GridPane.columnIndex="4">
+      <TextField fx:id="portTextField" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="60.0" promptText="Puerto" GridPane.columnIndex="4">
          <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </TextField>
-      <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+      <CheckBox fx:id="sslCheckBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </CheckBox>
-      <TextField promptText="Email del remitente" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-      <PasswordField promptText="Contraseña" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
+      <TextField fx:id="emailFromTextField" promptText="Email del remitente" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
+      <PasswordField fx:id="passwdField" promptText="Contraseña" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </PasswordField>
-      <TextField promptText="Email del destinatario" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="3" />
-      <TextField promptText="Asunto del mensaje" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="4" />
-      <TextArea maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="200.0" promptText="Mensaje" GridPane.columnSpan="5" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+      <TextField fx:id="emailToTextField" promptText="Email del destinatario" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
+      <TextField fx:id="subjectTextField" promptText="Asunto del mensaje" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin></TextField>
+      <TextArea fx:id="mesageTextArea" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="200.0" promptText="Mensaje" GridPane.columnSpan="5" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </TextArea>
-      <Button defaultButton="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Enviar" GridPane.columnIndex="5">
+      <Button fx:id="sendButton" defaultButton="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendOnaction" text="Enviar" GridPane.columnIndex="5">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" text="Vaciar" GridPane.columnIndex="5" GridPane.rowIndex="1">
+      <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearOnAction" text="Vaciar" GridPane.columnIndex="5" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" text="Cerrar" GridPane.columnIndex="5" GridPane.rowIndex="2">
+      <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeOnAction" text="Cerrar" GridPane.columnIndex="5" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
