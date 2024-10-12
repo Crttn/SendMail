@@ -3,6 +3,7 @@ package es.crttn.dad;
 import es.crttn.dad.controller.MainController;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -21,6 +22,7 @@ public class App extends Application {
         primaryStage.setMinWidth(mc.getRoot().getMinWidth());
         primaryStage.setMinHeight(mc.getRoot().getMinHeight());
         primaryStage.setTitle("SendMail");
+        primaryStage.getIcons().add(new Image("/images/Incon.png"));
         primaryStage.show();
 
     }
